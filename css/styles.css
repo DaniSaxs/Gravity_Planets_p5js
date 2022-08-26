@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+    background-color: black;
+}
+
+main{
+    width: 100% !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #mainSection{
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+}
+
+#allPlanets{
+    height: 100%;
+}
+
+.planetsContainers > div{
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0 ,0.5) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.planetsContainers > div> img{
+    transition: 0.2s ease-in-out;
+    transform: scale(1.01);
+}
+
+.planetsContainers > div> img:hover{
+    transform: scale(1.2);
+}
+
+.planetsContainers{
+    width: 100%;
+    margin: 0 !important;
+} */
