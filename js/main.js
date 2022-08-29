@@ -29,9 +29,9 @@ function draw() {
   images.loadImages();
 
   GUI();
-  gravityPlat();
 
   if(gravity != null){
+    gravityPlat();
     particle.display();
     platform.display();
     particle.update();

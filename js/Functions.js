@@ -57,7 +57,7 @@ function GUI(){
       if(gravity != null){
         fParticle = particle.mass * ((gravity.calculate().y * gravity.scale) / printCount);
         // platform.aceleration.y = ((fParticle / (particle.mass - platform.mass)) / gravity.scale);
-        platform.aceleration.y = ((fParticle / particle.mass) / gravity.scale);
+        platform.aceleration.y = (fParticle / gravity.scale);
         text("F = " + fParticle.toFixed(5) + " N", width * 0.05, height * 0.525);
         if(particle.impactFlag){
           printCount2 = (millis() - t2) / 1000;
@@ -149,27 +149,6 @@ function planetsGravity(){
 
 }
 
-function gravityPlat(){
-  
-  if(gravity != null){
-    
-    //if(particle.pos.y + 30) >= ((height * 0.7) - 20)){}
-    
-    if(dist(particle.pos.x, particle.pos.y, platform.pos.x, platform.pos.y) < 50 && platform.pos.y <= height * 0.7){
-      particle.impactFlag = true;
-      t2 = millis();
-    }
-    
-    if(particle.impactFlag){
-      count = false;
-      platform.update();
-    }
-    
-    if(particle.pos.y >= height) particle.impactFlag = false;
-    
-  }
-}
-
 function GUI2(){
     push();
       stroke(255);
@@ -213,7 +192,7 @@ function GUI2(){
         text("t1 = " + float(printCount).toFixed(5) + " sec", width * 0.05, height * 0.475);
         if(gravity != null){
           fParticle = particle.mass * ((gravity.calculate().y * gravity.scale) / printCount);
-          platform.aceleration.y = ((fParticle / particle.mass) / gravity.scale);
+          platform.aceleration.y = (fParticle / gravity.scale);
           platform.update();
           text("F = " + fParticle.toFixed(5) + " N", width * 0.05, height * 0.525);
         }
@@ -221,3 +200,21 @@ function GUI2(){
       
     pop();
   }
+
+function gravityPlat(){
+
+    //if(particle.pos.y + 30) >= ((height * 0.7) - 20)){}
+    
+    if(dist(particle.pos.x, particle.pos.y, platform.pos.x, platform.pos.y) < 50 && platform.pos.y <= height * 0.7){
+      particle.impactFlag = true;
+      t2 = millis();
+    }
+    
+    if(particle.impactFlag){
+      count = false;
+      platform.update();
+    }
+    
+    if(particle.pos.y >= height) particle.impactFlag = false;
+    
+}
